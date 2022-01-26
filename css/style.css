@@ -6,11 +6,4 @@ html {
     box-sizing: inherit;
 }
 
-.container {
-    height: 500px;
-    background-image: url(/images/ja.jpg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size:inherit
-}
 
