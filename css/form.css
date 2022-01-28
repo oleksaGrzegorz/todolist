@@ -23,7 +23,18 @@ form {
         margin-left: 0;
     
     }
+}
 
 .form__button:active {
+    border: solid 1px #000;
+}
+
+.form__input {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+.form__input:active {
     border: solid 1px #000;
 }
