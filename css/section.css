@@ -2,3 +2,13 @@
     box-shadow: 2px -2px 5px 0px #DDDDDD;
     background-color: white;
 }
+
+.section__header {
+    border-bottom: 1px solid #ddd;
+    padding: 20px;
+    font-size: 20px;
+}
+
+.section__container {
+    min-height: 120px;
+}
