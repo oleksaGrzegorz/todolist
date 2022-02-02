@@ -60,19 +60,20 @@
 
         bindEvents();
     };
-
-
+    
+    
     const onFormSumbit = (event) => {
         event.preventDefault();
 
-        const newTaskContent = document.querySelector(".js-newTask").value.trim();
+        const newElement = document.querySelector(".js-newTask").value.trim();
+        const newTaskContent = document.querySelector(".js-newTask");
 
-        if (newTaskContent === "") {
-            return;
+        if (newElement !== "") {
+            addNewTask(newElement);
+            newTaskContent.value = "";
         };
-
-        addNewTask(newTaskContent);
-    }
+        newTaskContent.focus();  
+    };
 
     const init = () => {
         render();
