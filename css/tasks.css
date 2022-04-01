@@ -31,9 +31,19 @@
 
 .tasks__button--done {
   background: green;
+
+}
+
+.tasks__button--done:hover {
+  background: hsl(120, 100%, 30%);
+  
 }
 
 .tasks__button--remove {
   background: red;
+}
+
+.tasks__button--remove:hover {
+  background: hsl(0, 100%, 60%);
 }
 
