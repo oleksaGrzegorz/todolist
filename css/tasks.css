@@ -1,7 +1,8 @@
 .tasks {
   margin: 0;
-  padding: 0 0 0 20px;
+  padding: 0 0 20px 0;
   list-style: none;
+
 }
 
 .tasks__item {
@@ -11,6 +12,9 @@
   align-items: center;
   border-bottom: 1px solid #ddd;
   padding: 10px;
+  width: 95%;
+  margin: 0 auto;
+
 }
 
 .tasks_content--done {
@@ -22,6 +26,7 @@
   height: 30px;
   border: none;
   color: white;
+  margin: 10px;
 }
 
 .tasks__button--done {
@@ -31,3 +36,4 @@
 .tasks__button--remove {
   background: red;
 }
+

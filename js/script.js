@@ -48,7 +48,7 @@
                     <button class="tasks__button tasks__button--done js-done">
                         ${task.done ? "✔" : " "}
                     </button>
-                    <span class="tasks__content${ task.done ? " tasks_content--done" : ""}">
+                    <span class="tasks__content${ task.done ? " tasks__content--done" : ""}">
                         ${task.content}
                     </span>
                     <button class="tasks__button tasks__button--remove js-remove">🗑</button>
@@ -57,7 +57,7 @@
 
         }
         document.querySelector(".js-tasks").innerHTML = htmlString;
-
+        
         bindEvents();
     };
     

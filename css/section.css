@@ -9,6 +9,6 @@
     font-size: 20px;
 }
 
-.section__container {
-    min-height: 100px;
+.section__buttons {
+padding: 10px;
 }
