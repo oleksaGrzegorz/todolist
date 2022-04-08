@@ -11,20 +11,10 @@
         render();
     }
 
-    const bindButtonEvents = () => {
-        const markAllDoneButton = document.querySelector(".js-markAllDone");
-        if (markAllDoneButton) {
-            markAllDoneButton.addEventListener("click", markAllTasksDone);
-        }
-    };
-
-    const addNewTask = (newTaskContent) => {
-        tasks = [
-            ...tasks,
-            { content: newTaskContent },
-        ];
+    const toggleHideDoneTasks = () => {
+        hideDoneTasks = !hideDoneTasks;
         render();
-    };
+    }
 
     const removeTask = (taskIndex) => {
         tasks = [
@@ -37,16 +27,24 @@
     const toggleTaskDone = (taskIndex) => {
         tasks = [
             ...tasks.slice(0, taskIndex),
-            { 
+            {
                 ...tasks[taskIndex],
-                done: !tasks[taskIndex].done, 
+                done: !tasks[taskIndex].done,
             },
             ...tasks.slice(taskIndex + 1),
         ];
         render();
     }
 
-    const bindEvents = () => {
+    const addNewTask = (newTaskContent) => {
+        tasks = [
+            ...tasks,
+            { content: newTaskContent },
+        ];
+        render();
+    };
+
+    const bindRemoveEvents = () => {
         const removeButtons = document.querySelectorAll(".js-remove");
 
         removeButtons.forEach((removeButton, index) => {
@@ -55,8 +53,11 @@
             });
 
         });
+    };
 
+    const bindToggleDoneEvents = () => {
         const toggleDoneButtons = document.querySelectorAll(".js-done");
+
 
         toggleDoneButtons.forEach((toggleDoneButton, index) => {
             toggleDoneButton.addEventListener("click", () => {
@@ -64,14 +65,12 @@
             });
 
         });
-    }
+    };
 
-    const render = () => {
-        let htmlString = "";
+    const renderTasks = () => {
+        const taskToHTML = (task) => `
 
-        for (const task of tasks) {
-            htmlString += `
-                <li class="tasks__item js-task">
+                <li class="tasks__item ${task.done && hideDoneTasks ? "tasks__item--hidden" : ""} js-task">
                     <button class="tasks__button tasks__button--done js-done">
                         ${task.done ? "✔" : " "}
                     </button>
@@ -82,12 +81,41 @@
                 </li>
         `;
 
-        }
-        document.querySelector(".js-tasks").innerHTML = htmlString;
-        bindEvents();
-        bindButtonEvents();
+        const tasksElement = document.querySelector(".js-tasks");
+        tasksElement.innerHTML = tasks.map(taskToHTML).join("");
     };
 
+    const renderButtons = () => {
+        const buttonsElement = document.querySelector(".js-buttons");
+        if (!tasks.length) {
+            buttonsElement.innerHTML = "";
+            return;
+        }
+
+        buttonsElement.innerHTML = `
+        <button class="buttons__button js-toggleHideDoneTasks">
+            ${hideDoneTasks ? "Pokaż" : "Ukryj"} ukończone
+        </button>
+        <button class="buttons__button js-markAllDone"
+        ${tasks.every(({ done }) => done) ? "disabled" : ""}
+        >
+        Ukończ wszystkie
+        </button>`;
+
+    };
+
+    const bindButtonEvents = () => {
+        const markAllDoneButton = document.querySelector(".js-markAllDone");
+        if (markAllDoneButton) {
+            markAllDoneButton.addEventListener("click", markAllTasksDone);
+        }
+
+        const toggleHideDoneTasksButton = document.querySelector(".js-toggleHideDoneTasks");
+
+        if (toggleHideDoneTasksButton) {
+            toggleHideDoneTasksButton.addEventListener("click", toggleHideDoneTasks);
+        }
+    };
 
     const onFormSumbit = (event) => {
         event.preventDefault();
@@ -102,11 +130,17 @@
         newTaskContent.focus();
     };
 
+    const render = () => {
+        renderTasks();
+        bindRemoveEvents();
+        bindToggleDoneEvents();
+        renderButtons();
+        bindButtonEvents();
+    };
+
     const init = () => {
         render();
-
         const form = document.querySelector(".js-form");
-
         form.addEventListener("submit", onFormSumbit);
     };
 
