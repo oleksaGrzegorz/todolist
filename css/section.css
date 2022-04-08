@@ -1,14 +1,25 @@
 .section {
     box-shadow: 2px -2px 5px 0px #DDDDDD;
     background-color: white;
+    margin: 10px 0;
 }
 
-.section__header {
-    border-bottom: 1px solid #ddd;
-    padding: 20px;
+.section__title {
+        padding: 20px;
     font-size: 20px;
+    margin: 0;
 }
 
 .section__buttons {
 padding: 10px;
+}
+
+.section__header {
+    border-bottom: 1px solid #ddd;
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: space-between;
+    grid-gap: 20px;
+    align-items: center;
+
 }

@@ -1,0 +1,12 @@
+.buttons__button {
+    background: transparent;
+    border: none;
+    margin: 0 0 0 20px;
+    cursor: pointer;
+    color: hsl(180, 100%, 25%);
+    transition: color 0.3s;
+}
+
+.buttons__button:hover {
+    color: hsl(180, 100%, 35%);
+}
