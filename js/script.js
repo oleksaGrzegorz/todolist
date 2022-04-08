@@ -6,7 +6,6 @@
         tasks = tasks.map((task) => ({
             ...task,
             done: true,
-
         }));
         render();
     }
@@ -51,19 +50,16 @@
             removeButton.addEventListener("click", () => {
                 removeTask(index);
             });
-
         });
     };
 
     const bindToggleDoneEvents = () => {
         const toggleDoneButtons = document.querySelectorAll(".js-done");
 
-
         toggleDoneButtons.forEach((toggleDoneButton, index) => {
             toggleDoneButton.addEventListener("click", () => {
                 toggleTaskDone(index);
             });
-
         });
     };
 
