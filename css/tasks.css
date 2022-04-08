@@ -29,6 +29,10 @@
   margin: 10px;
 }
 
+.tasks__item--hidden {
+  display: none;
+}
+
 .tasks__button--done {
   background: green;
 
