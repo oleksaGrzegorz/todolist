@@ -1,18 +1,22 @@
 {
-    const tasks = [];
+    let tasks = [];
 
     const addNewTask = (newTaskContent) => {
-        tasks.push({
-            content: newTaskContent,
-        });
+        tasks = [
+            ...tasks,
+            { content: newTaskContent },
+        ];
 
         render();
     };
 
     const removeTask = (taskIndex) => {
-        tasks.splice(taskIndex, 1);
+        tasks = [
+            ...tasks.slice(0, taskIndex), 
+            ...tasks.slice(taskIndex + 1),
+        ];
         render();
-    }
+ }
 
     const toggleTaskDone = (taskIndex) => {
         tasks[taskIndex].done = !tasks[taskIndex].done;
@@ -48,7 +52,7 @@
                     <button class="tasks__button tasks__button--done js-done">
                         ${task.done ? "✔" : " "}
                     </button>
-                    <span class="tasks__content${ task.done ? " tasks__content--done" : ""}">
+                    <span class="tasks__content${task.done ? " tasks__content--done" : ""}">
                         ${task.content}
                     </span>
                     <button class="tasks__button tasks__button--remove js-remove">🗑</button>
@@ -57,11 +61,11 @@
 
         }
         document.querySelector(".js-tasks").innerHTML = htmlString;
-        
+
         bindEvents();
     };
-    
-    
+
+
     const onFormSumbit = (event) => {
         event.preventDefault();
 
@@ -72,7 +76,7 @@
             addNewTask(newElement);
             newTaskContent.value = "";
         };
-        newTaskContent.focus();  
+        newTaskContent.focus();
     };
 
     const init = () => {
