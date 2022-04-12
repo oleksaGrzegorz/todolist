@@ -3,7 +3,7 @@
 ## Demo
 https://oleksagrzegorz.github.io/todolist/
 
-![gif how works my todolist](https://github.com/oleksaGrzegorz/todolist/blob/main/images/todolist-animation.gif)
+![gif how works my todolist](https://github.com/oleksaGrzegorz/todolist/blob/main/images/todolist2.gif)
 
 
 ## Description
