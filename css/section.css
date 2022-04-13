@@ -26,6 +26,7 @@ padding: 10px;
 @media (max-width:768px) {
     .section__header {
         grid-template-columns: 1fr;
+        grid-gap: 0;
     }
 }
 
