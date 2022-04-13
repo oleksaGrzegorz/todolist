@@ -5,7 +5,7 @@
 }
 
 .section__title {
-        padding: 20px;
+    padding: 20px;
     font-size: 20px;
     margin: 0;
 }
@@ -21,10 +21,21 @@ padding: 10px;
     justify-content: space-between;
     grid-gap: 20px;
     align-items: center;
+}
 
+@media (max-width:768px) {
+    .section__header {
+        grid-template-columns: 1fr;
+    }
 }
 
 .section__body {
     padding: 20px;;
 }
 
+@media (max-width:768px) {
+    .buttons {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+}
